@@ -47,7 +47,9 @@ export default class LoginView extends Component {
   handleSubmit = () => {
     if (this.validateInput()) {
       Alert.alert("Éxito", "Las validaciones fueron exitosas.");
+      Actions.home();
     }
+    
   };
 
   togglePasswordVisibility = () => {
@@ -79,7 +81,7 @@ export default class LoginView extends Component {
         <TextInput
           style={styles.input}
           onChangeText={(password) => this.setState({ password })}
-          value={this.state.showPassword ? this.state.password : "********"}
+          value={this.state.showPassword }
           secureTextEntry={!this.state.showPassword}
         />
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Actions } from "react-native-router-flux";
 import {Alert,Image,StyleSheet,Text,TextInput,TouchableOpacity,View,} from "react-native";
 
-export default class LoginView extends Component {
+export default class Register extends Component {
   state = {
     email: "",
     passwordInput1: "",
@@ -13,16 +13,17 @@ export default class LoginView extends Component {
   
 
   validateInput = () => {
-    const { email, passwordInput1, passwordInput2, user } = this.state;
+    const { email, passwordInput1, passwordInput2 } = this.state;
     const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
 
-    if (!email || !passwordInput1 || !passwordInput2 || !user) {
+    if (!email || !passwordInput1 ) {
       Alert.alert(
         "Error",
         "Los campos de correo electrónico y contraseña no pueden estar vacíos."
       );
+      console.log("secxo");
       return false;
     }
 
@@ -52,7 +53,8 @@ export default class LoginView extends Component {
 
   handleSubmit = () => {
     if (this.validateInput()) {
-      Alert.alert("Éxito", "Las validaciones fueron exitosas.");
+      Alert.alert("Éxito", "Las validaciones fueron exitosas.")
+      Actions.login();
     }
   };
 
