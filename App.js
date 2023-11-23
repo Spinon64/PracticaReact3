@@ -10,9 +10,9 @@ const App = () => {
   return (
     <Router>
       <Scene key="root">
+      <Scene key="home" component={HomeView}  hideNavBar/>
         <Scene key="login" component={LoginView} title="Login" hideNavBar/>
         <Scene key="register" component={RegisterView} title="Register" hideNavBar/>
-        <Scene key="home" component={HomeView}  hideNavBar/>
         <Scene key="artistDetail" component={ArtistDetailView} hideNavBar/>
       </Scene>
     </Router>

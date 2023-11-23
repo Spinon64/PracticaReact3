@@ -1,5 +1,5 @@
 import React, {Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 export default class ArtistBox extends Component {
 
@@ -7,6 +7,7 @@ export default class ArtistBox extends Component {
         const {image, name} = this.props.artist
         return (
            <View style={styles.container}>
+              
                 <View style={styles.artistBox}>
                     <Image style={styles.image} source={{uri: image}} />
                         <View style={styles.info}>
@@ -26,6 +27,19 @@ const styles = StyleSheet.create({
         elevation: 2,
         borderRadius: 20,
     },
+    goBackButton: {
+        position: 'absolute',
+        top: 10,
+        left: 10,
+        zIndex: 1,
+        backgroundColor: 'green',
+        padding: 5,
+        borderRadius: 10,
+      },
+      goBackText: {
+        fontSize: 16,
+        color: 'white',
+      },
     container: {
         backgroundColor: '#1F1F1F',
     },

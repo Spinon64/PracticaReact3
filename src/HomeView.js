@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text } from "react-native";
-
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { Actions } from "react-native-router-flux";
 import ArtistList from "./ArtistList";
 import { getMusicData } from "./api-client";
 
@@ -18,6 +18,9 @@ export default class HomeView extends Component {
 
     return (
       <View style={styles.container}>
+        <TouchableOpacity style={styles.goBackButton}  onPress={() => Actions.login()}>
+                 <Text style={styles.goBackText}>Go Back</Text>
+              </TouchableOpacity>
         {artists && <ArtistList artists={artists} />}
       </View>
     );
@@ -27,7 +30,21 @@ export default class HomeView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eee",
-    paddingTop: 50,
+    backgroundColor: "#1F1F1F",
+    paddingTop: 90,
+  },
+  goBackButton: {
+    marginTop: 40,
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    zIndex: 1,
+    backgroundColor: 'green',
+    padding: 5,
+    borderRadius: 10,
+  },
+  goBackText: {
+    fontSize: 16,
+    color: 'white',
   },
 });
